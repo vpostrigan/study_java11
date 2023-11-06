@@ -17,7 +17,6 @@ public class Structural_Decorator {
     }
 
     static class MainComponent implements InterfaceComponent {
-
         @Override
         public void doOperation() {
             System.out.print("World!");
