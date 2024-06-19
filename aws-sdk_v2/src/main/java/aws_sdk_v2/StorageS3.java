@@ -19,8 +19,7 @@ import software.amazon.awssdk.services.s3.model.ListObjectsRequest;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import software.amazon.awssdk.services.secretsmanager.SecretsManagerClient;
 import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueRequest;
-import software.amazon.awssdk.transfer.s3.DownloadFileRequest;
-import software.amazon.awssdk.transfer.s3.S3ClientConfiguration;
+import software.amazon.awssdk.transfer.s3.model.DownloadFileRequest;
 import software.amazon.awssdk.transfer.s3.S3TransferManager;
 
 import java.io.File;
@@ -124,11 +123,16 @@ public class StorageS3 {
     public void setTransferManager() {
         final DefaultCredentialsProvider credentialsProvider = DefaultCredentialsProvider.create();
 
-        S3ClientConfiguration c = S3ClientConfiguration.builder()
-                .credentialsProvider(credentialsProvider)
-                .region(Region.US_EAST_1)
-                .build();
-        transferManager = S3TransferManager.builder().s3ClientConfiguration(c).build();
+        transferManager = S3TransferManager.builder().s3Client(
+                S3AsyncClient.crtBuilder()
+                        .region(Region.US_EAST_1)
+                        .credentialsProvider(credentialsProvider)
+                        .maxConcurrency(5)
+                        .minimumPartSizeInBytes((long) (5 * 1024 * 1024))
+                        .build()
+        ).build();
+
+
     }
 
     public void getToFile(String name, String bucket, final File target) throws ExecutionException, InterruptedException {
