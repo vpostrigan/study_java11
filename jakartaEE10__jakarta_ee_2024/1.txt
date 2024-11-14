@@ -1,3 +1,0 @@
-+ https://www.youtube.com/watch?v=jB2uSJX7jnM   Creating a Simple Jakarta Persistence/JPA Application in IntelliJ IDEA Ultimate
-
-+ https://www.youtube.com/watch?v=QJddHc41xrM   IntelliJ IDEA. Working with Hibernate/JPA
