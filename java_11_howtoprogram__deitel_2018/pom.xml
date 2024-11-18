@@ -16,6 +16,33 @@
         <javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
     </properties>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+
+                <configuration>
+                    <!--<release>11</release>-->
+                    <source>1.11</source>
+                    <target>1.11</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>${javafx.maven.plugin.version}</version>
+                <configuration>
+                    <executable>C:/Program Files/Java/jdk1.8.0_amazon_corretto/jre</executable>
+                    <mainClass>src.sampe.Main</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -62,32 +89,5 @@
             <version>2.3.3</version>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
-
-                <configuration>
-                    <!--<release>11</release>-->
-                    <source>1.11</source>
-                    <target>1.11</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-maven-plugin</artifactId>
-                <version>${javafx.maven.plugin.version}</version>
-                <configuration>
-                    <executable>C:/Program Files/Java/jdk1.8.0_amazon_corretto/jre</executable>
-                    <mainClass>src.sampe.Main</mainClass>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
