@@ -1,4 +1,0 @@
-
-https://javatutor.net/articles/j2ee-pattern-data-access-object
-
-https://www.baeldung.com/java-dao-pattern
