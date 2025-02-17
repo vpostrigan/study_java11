@@ -1,5 +1,0 @@
-text
-View
-Test View
-I am a test view
-Some random text, on a page
